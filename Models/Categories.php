@@ -1,7 +1,14 @@
-<?php 
-class Categories extends Products{
-    public $title;
-    public function __construct(string $title,){
-        $this->title = $title;
+<?php
+include __DIR__ . '/Products.php';
+class Categories extends Products {
+    protected $category;
+
+    public function __construct($name, $description, $price, $image, $pieces, $category) {
+        parent::__construct($name, $description, $price, $image, $pieces);
+        $this->category = $category;
+    }
+
+    public function getCategory() {
+        return $this->category;
     }
 }

@@ -41,20 +41,23 @@ include __DIR__ . '/data/db.php';
 <main>
     <div class="container">
         <div class="row">
+            <?php foreach($products as $product) :?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card">
                     <div class="card-img-top">
-                        <img src="<?= $product1->image ?>" alt="<?= $product1->name ?>" class="w-100 h-100">
+                        <img src="<?= $product->image ?>" alt="<?= $product->name ?>" class="w-100 h-100">
                     </div>
-                    <div class="card-body">
-                        <h4><?= $product1->name ?></h4>
-                        <span><?= $product1->description ?></span>
-                        <span><?= $product1->price ?></span>
-                        <span><?= $product1->pieces ?></span>
-                        <span></span>
+                    <div class="card-body d-flex flex-column">
+                        <h4><?= $product->name ?></h4>
+                        <span><?= $product->description ?></span>
+                        <span class="text-success fw-bold">Prezzo: <?= $product->price ?></span>
+                        <span class="text-warning fw-bold">Disponibilità: <?= $product->pieces ?></span>
+                        <span>Categoria: <?= $product->getCategory() ?></span>
+                        <span>Tipo: <?= $product->getType() ?></span>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
