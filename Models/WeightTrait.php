@@ -2,8 +2,15 @@
 trait WeightTrait
 {
     public $weight;
-    public function setWeight($weight, $unit)
+    public function getWeight($weight)
     {
-        $this->weight = $weight . ' ' . $unit;
+        $this->weight = $weight;
+    }
+    public function setWeight($weight)
+    {
+        if (!is_int($weight)) {
+            throw new Exception('Peso non specificato');
+        }
+        return $weight;
     }
 }

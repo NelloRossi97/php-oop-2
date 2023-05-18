@@ -3,8 +3,19 @@ include __DIR__ . '/../Models/Type.php';
 
 $product1 = new Type('PRO-NUTRITION per Cani Adulti di Taglia Media', 'Crocchette PRO-NUTRITION Flazator Pure Life Senza Cereali per Cani Adulti di Taglia Media (10-30kg)', 78.99, 'https://static.zoomalia.com/prod_img/32991/la_810b6edc1cd1f36e45daf6d7824d7bb22831653638194.jpg', 2, 'Cibo', 'fa-solid fa-dog');
 $product2 = new Type('Palle arcobaleno', 'Palle arcobaleno gatto (x4): - Palla di schiuma. - Venduta per 4. - Ø3,5 cm', 2.89, 'https://static.zoomalia.com/prod_img/34655/la_5427dcd340d84f762eba80aa538b0c527f71665126706.jpg', 3, 'Gioco', 'fa-solid fa-cat');
+$product3 = new Type('Palle arcobaleno', 'Palle arcobaleno gatto (x4): - Palla di schiuma. - Venduta per 4. - Ø3,5 cm', 2.89, 'https://static.zoomalia.com/prod_img/34655/la_5427dcd340d84f762eba80aa538b0c527f71665126706.jpg', 3, 'Gioco', 'fa-solid fa-cat');
 
-$product1->setWeight(5, 'kg');
-$product2->setWeight(500, 'gr');
+$product1->getWeight(5);
+$product2->getWeight(500);
 
-$products = [$product1, $product2];
+
+
+$products = [$product1, $product2, $product3];
+
+foreach ($products as $product) {
+    try {
+        $product->setWeight($weight);
+    } catch (Exception $e) {
+        echo 'Eccezione: ' . $e->getMessage();
+    }
+}
