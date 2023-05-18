@@ -43,7 +43,7 @@ include __DIR__ . '/data/db.php';
         <div class="row">
             <?php foreach($products as $product) :?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
+                <div class="card position-relative">
                     <div class="card-img-top">
                         <img src="<?= $product->image ?>" alt="<?= $product->name ?>" class="w-100 h-100">
                     </div>
@@ -53,7 +53,9 @@ include __DIR__ . '/data/db.php';
                         <span class="text-success fw-bold">Prezzo: <?= $product->price ?></span>
                         <span class="text-warning fw-bold">Disponibilità: <?= $product->pieces ?></span>
                         <span>Categoria: <?= $product->getCategory() ?></span>
-                        <span>Tipo: <?= $product->getType() ?></span>
+                        <span id="label" class="rounded-5 bg-primary d-flex justify-content-center align-items-center position-absolute" style="width: 30px; height: 30px; top: 10px;right: 10px;"> 
+                            <i class="<?= $product->getType()?>"></i>
+                        </span>
                     </div>
                 </div>
             </div>
